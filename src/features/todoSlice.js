@@ -19,6 +19,7 @@ const todoSlice = createSlice({
     }
 });
 
-// You need to export the function individually
+// You need to export the function individually (to be used in the components)
 export const {addTodo, removeTodo} = todoSlice.actions
+// export the reducer (to be used in the store)
 export default todoSlice.reducer
