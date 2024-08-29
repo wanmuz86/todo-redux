@@ -1,16 +1,21 @@
 import React from 'react'
 import TodoDetail from './TodoDetail'
+import {  useSelector } from 'react-redux'
 
 const TodoList = () => {
+    const todos = useSelector((state) => state.todos.todos) // bring out the state
     return (
         <div>
             <h2>Todo List</h2>
             <ul>
-                <li><TodoDetail/></li>
-                <li><TodoDetail/></li>
-                <li><TodoDetail/></li>
+                {todos.map(todo =>
+                    <li key={todo.id}>
+                        <TodoDetail todo={todo} />
+                    </li>
+                )
+                }
             </ul>
-            </div>
+        </div>
     )
 }
 

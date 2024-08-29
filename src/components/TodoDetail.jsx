@@ -1,13 +1,16 @@
 import React from 'react'
-
-const TodoDetail = () => {
+import { useDispatch } from 'react-redux'
+import { removeTodo } from '../features/todoSlice'
+const TodoDetail = ({todo}) => {
+  const dispatch = useDispatch()
     const handleRemove = () => {
+      dispatch(removeTodo(todo.id))
 
     }
   return (
     <div>
-        <h3>Item Name</h3>
-        <button onChange={handleRemove}>Remove</button>
+        <h3>{todo.name}</h3>
+        <button onClick={handleRemove}>Remove</button>
     </div>
   )
 }
